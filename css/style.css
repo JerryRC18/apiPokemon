@@ -5,3 +5,8 @@
     padding: 10px;
     border-radius: 10px;
 }
+
+.flex {
+    display: flex;
+    flex-direction: row;
+}
