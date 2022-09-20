@@ -15,7 +15,7 @@
 }
 
 .card {
-    background-color: blueviolet;
+    background-color: white;
     border-radius: 20px;
     overflow: hidden;
     max-width: 320px;
@@ -33,15 +33,15 @@
     flex-direction: column;
     align-items: center;
     border-bottom: 1px solid yellow;
-    background-color: bisque;
+    background-color: greenyellow;
 }
 
 .card-body-img {
-    width: 200px;
-    height: 200px;
+    width: 250px;
+    height: 230px;
     border-radius: 50%;
     border: 5px solid white;
-    background-color: white;
+    background-color: blueviolet;
 }
 
 .card-body-title {
@@ -81,7 +81,7 @@
 .card-footer-social p {
     margin-top: 0;
     margin-bottom: 2rem;
-    letter-spacing: 1px;
+    letter-spacing: 2px;
     color: rgb(62, 2, 62);
     font-weight: 700;
     font-size: 1.2 rem;
