@@ -64,10 +64,9 @@ const pintarPokemon = pokemon => {
     pokemonBuscado.innerHTML = ''
     clone.querySelector('.card-body-img').setAttribute('src', pokemon.imgCvg)
     clone.querySelector('.card-body-title')
+    .innerHTML = `${pokemon.nombre} <span>${pokemon.hp} hp</span>`
 
-    .innerHTML = `${pokemon.nombre}<span>${pokemon.hp}hp</span>`
-
-    clone.querySelector('.card-body-text').textContent = pokemon.experiencia +"exp"
+    clone.querySelector('.card-body-text').textContent = pokemon.experiencia + " exp"
 
     clone.querySelectorAll('.card-footer-social h3')[0].textContent = pokemon.ataque + "K"
     clone.querySelectorAll('.card-footer-social h3')[1].textContent = pokemon.especial + "K"
@@ -107,6 +106,7 @@ const pintarPokemones = () => {
     lista.appendChild(fragment)
 
 }
+
 
 const buscaPorNombre = () => {
     const busca = document.getElementById('buscaNombre').value
