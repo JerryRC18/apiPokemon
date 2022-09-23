@@ -9,7 +9,7 @@ const btnFiltrar = document.getElementById('btnFiltrar')
 const input = document.getElementById('filtroPokemones')
 
 
-let pokemones = []
+let pokemones = {}
 let pokemonBuscado = {}
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -92,13 +92,21 @@ const fetchPokemones = (total) => {
         })
 }
 
-const pintarPokemones = () => {
+const pintarPokemones = (array) => {
+    console.log(array)
+    const pinta = array || pokemones
+    let i = -1
+    if (array){
+        i = pokemones.findIndex(x => x.name === array[0].name)
+        i++
+    }
+    console.log(pokemones)
     lista.innerHTML = ''
-    pokemones.forEach((item, index) => {
+    pinta.forEach((item, index) => {
         //console.log(item)
         infoPokemon.querySelectorAll('p')[0].textContent = item.name
         infoPokemon.querySelectorAll('p')[1].textContent = item.url
-        infoPokemon.querySelector('button').dataset.id = index + 1
+        infoPokemon.querySelector('button').dataset.id = i != -1 ? i : index + 1
 
         const clone = infoPokemon.cloneNode(true)
         fragment.appendChild(clone)
@@ -110,5 +118,21 @@ const pintarPokemones = () => {
 
 const buscaPorNombre = () => {
     const busca = document.getElementById('buscaNombre').value
-    console.log('data', busca)
+    //console.log('data', busca)
+    const resultado = pokemones.find (obj => {
+        //console.log(obj)
+        if ( obj.name === busca ){
+             return obj
+            }else {
+                return false
+            }
+    })
+    if(resultado){
+        let poke = []
+        poke.push(resultado)
+        pintarPokemones(poke)
+    }else{
+        pintarPokemones()
+    }
+    //console.log('resultado', resultado)
 }
